@@ -25,12 +25,15 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+
+import { typography } from './src/theme/typography';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
   return (
     <View style={styles.sectionContainer}>
       <Text
@@ -47,6 +50,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
           styles.sectionDescription,
           {
             color: isDarkMode ? Colors.light : Colors.dark,
+            ...typography.caption_3,
           },
         ]}>
         {children}
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400',
+    fontWeight: '800',
   },
   highlight: {
     fontWeight: '700',
